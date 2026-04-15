@@ -21,7 +21,7 @@ The repository follows a simple research-oriented structure:
 Behavioral_Finance_Project/
 ├── README.md
 ├── data/
-│   ├── raw/                # Synthetic input data as initially created or collected
+│   ├── raw/                # Synthetic input data as provided by Prof.
 │   ├── interim/            # Cleaned or transformed intermediate datasets
 │   └── processed/          # Final analysis-ready datasets
 ├── notebooks/              # Exploratory notebooks and preliminary analyses
