@@ -1,0 +1,295 @@
+% Behavioral Finance Thesis Proposal (Retail Attention -> Robinhood Herding -> Reversal / US Equities)
+
+\documentclass[12pt]{article}
+\usepackage[utf8]{inputenc}
+
+\setcounter{secnumdepth}{3}
+\setcounter{tocdepth}{3}
+
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{booktabs}
+\usepackage{graphicx}
+\usepackage{csquotes}
+\usepackage{minted}
+\usepackage{tikz}
+\usepackage{tabularx}
+\usepackage{tcolorbox}
+\usetikzlibrary{arrows.meta, positioning, shapes.geometric}
+
+\usepackage{xcolor}
+\usepackage[
+  colorlinks=false,
+  pdfborder={0 0 1},
+  linkbordercolor=red,
+  urlbordercolor=blue,
+  citebordercolor=red
+]{hyperref}
+\hypersetup{
+  pdftitle={BehavioralEconRP},
+  pdfauthor={Yvan Richard}
+}
+
+\usepackage[
+    left=1.2in,
+    right=1.2in,
+    top=1.1in,
+    bottom=1.1in
+]{geometry}
+
+\usepackage{caption}
+\captionsetup[table]{labelfont=bf, justification=centering}
+\captionsetup[figure]{labelfont=bf, justification=centering}
+
+\usepackage[style=apa,backend=biber]{biblatex}
+\DeclareLanguageMapping{english}{english-apa}
+\addbibresource{references.bib}
+
+% ----------------------------------------------------------------------
+% Figures and tables
+% ----------------------------------------------------------------------
+\usepackage{graphicx}
+\usepackage{float}
+\usepackage{subcaption}
+\usepackage{caption}
+\usepackage{chngcntr}
+\captionsetup{
+    font=small,
+    labelfont=bf,
+    labelsep=period
+}
+\counterwithout{figure}{section}
+\renewcommand{\thefigure}{\arabic{figure}}
+\counterwithout{table}{section}
+\renewcommand{\thetable}{\arabic{table}}
+
+% three parts table
+\usepackage{booktabs}
+\usepackage{threeparttable}
+\usepackage{siunitx}
+\usepackage{adjustbox}
+\usepackage{array}
+
+% optional: better number alignment
+\sisetup{
+    group-separator = {,},   % 1,000
+    group-minimum-digits = 4,
+    input-symbols = {-,()},
+    table-number-alignment = center
+}
+
+\begin{document}
+
+\begin{titlepage}
+    \centering
+    \vspace*{4.7cm}
+    {\LARGE \textbf{The Effects of Attention in Retail Stock Selection \& Herding} \par}
+    \vspace{2em}
+    {\large \textit{Interpreting Statistical Data in Behavioral Research} \\[1em]
+    Research Proposal \par}
+
+    \begin{center}
+    \rule{0.5\linewidth}{0.1pt}
+    \end{center}
+
+    \vspace{1em}
+    {\small Yvan Richard, Antoine Pittet, Alexandre Zaza, \\[0.5em]
+    Arthur Glauser, \& Samuel Payne \par
+    \vspace{2em}
+    \textbf{University of St. Gallen} \par
+    \vspace{1em}
+    April 2026 \par}
+\end{titlepage}
+
+\tableofcontents
+\newpage
+
+\section{Motivation}
+
+A central idea in behavioral economics and behavioral finance is that attention is scarce \parencite{Kahneman1973,Kahneman2011}.
+Investors do not process the full universe of available information; instead,
+their decisions are shaped by salient cues that bring a small subset of assets into focus \parencite{BarberOdean2008}.
+In retail trading, this mechanism is especially powerful because the \emph{buying} decision
+requires searching across thousands of potential securities, whereas the \emph{selling} decision
+is typically restricted to assets already held \parencite{Welch2022}. This asymmetry implies that attention
+should matter disproportionately for buying decisions and, by extension, for
+episodes of concentrated retail demand \parencite{BarberEtal2022}.
+
+Recent work has shown that retail attention can be measured more directly through Google
+search activity \parencite{DaEtal2011,deHaanEtal2024}, and that spikes in search intensity are associated with
+temporary price pressure and subsequent reversals \parencite{BarberEtal2022, ArdiaEtal2023}. At
+the same time, new evidence suggests that social media and news coverage are additional
+channels through which attention is formed and propagated \parencite{DeGiorgiEtal2026}.
+In particular, research on Robinhood users and the subreddit \texttt{r/wallstreetbets} indicates
+that retail trading responds strongly to visible, salient, and socially amplified information.
+When this occurs, retail investors are more likely to herd together in the same stocks, creating episodes of
+concentrated buying pressure \parencite{BarberEtal2022,ArdiaEtal2023}---referred to as \emph{herding events}.
+
+Therefore, the present course project draws inspiration from this literature and constructs a
+narrower and pedagogical empirical design suitable for synthetic data. The goal is to test
+whether retail herding becomes more likely when a stock simultaneously experiences heightened
+search attention, elevated news coverage, and unusually high social media visibility.
+
+\section{Research Question \& Hypotheses}
+
+\subsection{Research Question}
+
+The main research question is outlined as follows.
+
+\begin{tcolorbox}[colback=blue!5!white, colframe=blue!75!black, title=Research Question]
+Do direct and indirect attention signals increase the likelihood and intensity of
+retail herding episodes in individual stocks?
+\end{tcolorbox}
+
+More specifically, the project asks whether abnormal investor attention, measured through
+Google search intensity, news coverage, and social media mentions, predicts days on which
+retail trading becomes unusually concentrated in a given stock.
+
+\subsection{Conceptual Framework \& Hypotheses}
+
+The project is grounded in the limited-attention view of investor behavior.
+Retail investors face a severe search problem when buying securities \parencite{BarberOdean2008}.
+Because they cannot evaluate the entire opportunity set, they are more likely to
+consider assets that have recently become salient. Salience may arise from several observable
+signals: an extreme return, an unusual number of news stories, or a burst of social media
+discussion \parencite{ArdiaEtal2023,BarberEtal2022,DeGiorgiEtal2026,deHaanEtal2024}. Once a
+stock enters the investor's consideration set, search activity may follow as a complementary
+step through which the investor gathers context before trading. In this context, the project tests the following hypotheses.
+
+\begin{tcolorbox}[colback=blue!5!white, colframe=blue!75!black, title=Hypothesis 1]
+  Stocks with higher abnormal Google search attention are more likely to experience a retail herding episode on the following day.
+\end{tcolorbox}
+
+Formally, if $H_{i,t}$ denotes a herding indicator for stock $i$ on day $t$, and $ASVI_{i,t-1}$ denotes lagged abnormal search intensity, then:
+
+$$
+\frac{\partial \Pr(H_{i,t}=1)}{\partial asvi_{i,t-1}} > 0
+$$
+
+This hypothesis is consistent with the attention-based buying framework
+and with the predictive role of search intensity emphasized in previous
+research \parencite{BarberEtal2022,ArdiaEtal2023,DaEtal2011}.
+
+\begin{tcolorbox}[colback=blue!5!white, colframe=blue!75!black, title=Hypothesis 2]
+  Stocks receiving unusually high news coverage are more likely to experience retail herding on the following day.
+\end{tcolorbox}
+
+Let $news_{i,t-1}$ denote the news coverage variable for stock $i$ on day $t - 1$; namely, the number of
+news stories mentioning the stock. Then:
+
+$$
+\frac{\partial \Pr(H_{i,t}=1)}{\partial news_{i,t - 1}} > 0
+$$
+
+This hypothesis is motivated by the idea that news coverage is a powerful attention signal that can
+bring a stock into the investor's consideration set \parencite{BarberOdean2008} and therefore trigger
+herding episodes.
+
+\begin{tcolorbox}[colback=blue!5!white, colframe=blue!75!black, title=Hypothesis 3]
+  Stocks with unusually high social media visibility are more likely to experience retail herding on the following day.
+\end{tcolorbox}
+
+In the same vein, let $smv_{i,t-1}$ denote the social media visibility (SMV) variable
+for stock $i$ on day $t - 1$, measured as the number of mentions on Twitter and Reddit. Then:
+
+$$
+\frac{\partial \Pr(H_{i,t}=1)}{\partial smv_{i,t - 1}} > 0
+$$
+
+This hypothesis is based on the growing evidence that social media is an increasingly important
+channel through which retail investors form and propagate attention \parencite{DeGiorgiEtal2026,MunsterEtal2024}.
+
+In our context, it will be interesting to compare the relative predictive power of
+these three attention signals, as well as to test whether they have an additive
+effect on the likelihood of herding episodes.
+
+Finally, the project will observe heterogeneity in the relationship between attention
+and herding across different market capitalization segments and volatility regimes. For
+instance, it is possible that attention signals are more likely to trigger herding
+in small-cap stocks, which are more difficult to evaluate and more likely to be influenced
+by retail investors \parencite{BarberOdean2008}. Similarly, attention may have a diminished
+effect during periods of high volatility, when investors are more likely to liquidate their
+positions regardless of attention signals---according to recent findings by Citadel Securities\footnote{
+  \url{https://www.citadelsecurities.com/news-and-insights/modeling-the-retail-sell-inflection-point/}
+}. Two additional hypotheses are therefore tested.
+
+\begin{tcolorbox}[colback=blue!5!white, colframe=blue!75!black, title=Hypothesis 4]
+  The predictive power of attention signals for retail herding is stronger in small-cap stocks than in large-cap stocks.
+\end{tcolorbox}
+
+\begin{tcolorbox}[colback=blue!5!white, colframe=blue!75!black, title=Hypothesis 5]
+  The predictive power of attention signals for retail herding is weaker during periods of high market volatility.
+\end{tcolorbox}
+
+\section{Data}
+
+The project will use synthetic data generated to mimic the key features of real-world retail
+trading, search activity, news coverage, and social media visibility. The dataset will
+consist of daily observations for a sample of 8,000 stocks over a period of 2 years (approximately
+500 trading days). \autoref{tab:data_description} provides a detailed description of
+the variables included in the dataset.
+
+\begin{table}[htbp]
+\centering
+\caption[Description of the Synthetic Dataset]{\textbf{Description of the Synthetic Dataset}}
+\label{tab:data_description}
+
+\begin{threeparttable}
+\begin{minipage}{\textwidth}
+\footnotesize{
+The table describes the main variables included in the synthetic stock-day panel used for the empirical analysis.
+The data are designed to mimic the joint behavior of retail trading activity, investor attention, and stock-level market characteristics.
+The final dataset consists of approximately 8{,}000 stocks observed over roughly 500 trading days.
+Variables are measured at the daily frequency. Lagged attention variables are used to predict next-day retail herding episodes.}
+\end{minipage}
+
+\vspace{0.6em}
+
+\footnotesize
+\begin{tabularx}{\textwidth}{@{}l l X@{}}
+\toprule
+\textbf{Variable} & \textbf{Type} & \textbf{Description} \\
+\midrule
+
+$holders\_chg_{i,t}$ & Continuous & Continuous measure of retail trading activity in stock $i$ on day $t$. This variable lies at the core of the analysis, capturing the day-to-day changes in the number of retail investors holding the stock. \\
+
+$H_{i,t}$ & Binary indicator & Equals one if stock $i$ experiences a retail herding episode on day $t$, and zero otherwise. A herding episode is defined as an unusually large concentration of retail demand in a given stock-day observation. The variable is constructed based on the distribution of $holders\_chg_{i,t}$ across all stocks on a given day. \\
+
+$asvi_{i,t-1}$ & Continuous & Lagged abnormal Google search intensity for stock $i$. This variable proxies for direct investor attention and is constructed as a deviation from the stock's recent search baseline. Higher values indicate unusually strong search interest. \\
+
+$news_{i,t-1}$ & Count & Lagged number of news stories mentioning stock $i$. This variable captures the intensity of traditional media coverage and serves as an indirect proxy for stock-level salience. \\
+
+$smv_{i,t-1}$ & Count & Lagged social media visibility of stock $i$, measured as the number of mentions on platforms such as Twitter or Reddit. This variable captures socially propagated attention among retail investors. \\
+
+$ret_{i,t-1}$ & Continuous & Lagged daily stock return. This variable controls for recent price movements that may independently attract investor attention, especially after extreme gains or losses. \\
+
+$abvol_{i,t-1}$ & Continuous & Lagged abnormal trading volume for stock $i$, measured relative to the stock's recent normal trading activity. This variable captures unusual market activity that may itself attract retail attention. \\
+
+$size_{i,t-1}$ & Continuous & Lagged firm size, measured by market capitalization. This variable is used both as a standard control and to study heterogeneity in the attention-herding relationship across small- and large-cap stocks. \\
+
+$vix_t$ & Continuous & Lagged VIX index value. The VIX index measures market volatility expectations and serves as a proxy for overall market uncertainty. \\
+\bottomrule
+\end{tabularx}
+\end{threeparttable}
+\end{table}
+
+The dataset is designed to allow for a comprehensive analysis of the relationship between investor attention and retail herding,
+while controlling for relevant market characteristics and testing for heterogeneity across different stock segments and volatility regimes.
+Evidently, the synthetic data will hopefully be generated to reflect realistic patterns observed in actual financial markets, including the
+distribution of returns, trading volumes, and attention measures. The dataset should also include an indicator for each stock $i$ (e.g. ticker symbol
+or unique identifier) and a date variable for each trading day $t$.
+
+\section{Empirical Strategy}
+
+To test the hypotheses, the project will estimate a series of logistic regression models (LRMs) or linear probability models (LPMs), where the dependent
+variable is the binary herding indicator $H_{i,t}$, and the key independent variables are the lagged attention measures ($asvi_{i,t-1}$, $news_{i,t-1}$,
+and $smv_{i,t-1}$). The models will control for lagged stock returns, lagged holders change, firm size, and market volatility. Additionally,
+interaction terms will be included to test for heterogeneity across market capitalization segments and volatility regimes. Other statistical techniques presented in the course will be used to introduce and complement the main regression analysis, such as descriptive statistics,
+correlation analysis, and graphical representations of the data.
+
+
+
+\newpage
+\printbibliography
+
+\end{document}
