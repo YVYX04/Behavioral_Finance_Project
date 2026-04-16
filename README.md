@@ -37,8 +37,8 @@ Behavioral_Finance_Project/
 │   ├── figures/            # Output plots and visualizations
 │   └── presentation/       # Final slides or presentation material
 ├── reports/
-│   ├── topic.md            # Research question description
-│   └── project_notes.md    # Research notes, interpretation, and draft conclusions
+│   ├── research_proposal/  # Research question description
+│   └── research_notes/     # Research notes, interpretation, and draft conclusions
 ├── requirements.txt
 └── .gitignore
 ```
