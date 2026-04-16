@@ -5,3 +5,23 @@
 __pycache__/
 *.py[cod]
 *$py.class
+
+# latex auxiliary files
+*.aux
+*.lof
+*.log
+*.lot
+*.fls
+*.out
+*.toc
+*.fmt
+*.fot
+*.cb
+*.cb2
+*.lb
+*.blg
+*.bbl
+*.bcf
+*.fdb_latexmk
+*.run.xml
+*.synctex.gz
