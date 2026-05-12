@@ -1,0 +1,721 @@
+media_attention,exposure_level,industry,buying_intention
+Google Search,Low,Industry A,3
+Google Search,Low,Industry A,2
+Google Search,Low,Industry A,2
+Google Search,Low,Industry A,2
+Google Search,Low,Industry A,2
+Google Search,Low,Industry A,2
+Google Search,Low,Industry A,2
+Google Search,Low,Industry A,1
+Google Search,Low,Industry A,3
+Google Search,Low,Industry A,2
+Google Search,Low,Industry A,2
+Google Search,Low,Industry A,2
+Google Search,Low,Industry A,2
+Google Search,Low,Industry A,2
+Google Search,Low,Industry A,2
+Google Search,Low,Industry A,1
+Google Search,Low,Industry A,2
+Google Search,Low,Industry A,2
+Google Search,Low,Industry A,2
+Google Search,Low,Industry A,1
+Google Search,Low,Industry A,3
+Google Search,Low,Industry A,2
+Google Search,Low,Industry A,2
+Google Search,Low,Industry A,3
+Google Search,Low,Industry A,2
+Google Search,Low,Industry A,1
+Google Search,Low,Industry A,2
+Google Search,Low,Industry A,1
+Google Search,Low,Industry A,3
+Google Search,Low,Industry A,2
+Google Search,Low,Industry A,2
+Google Search,Low,Industry A,3
+Google Search,Low,Industry A,1
+Google Search,Low,Industry A,2
+Google Search,Low,Industry A,1
+Google Search,Low,Industry A,2
+Google Search,Low,Industry A,1
+Google Search,Low,Industry A,3
+Google Search,Low,Industry A,3
+Google Search,Low,Industry A,2
+Google Search,Low,Industry A,2
+Google Search,Low,Industry A,2
+Google Search,Low,Industry A,2
+Google Search,Low,Industry A,2
+Google Search,Low,Industry A,1
+Google Search,Low,Industry A,1
+Google Search,Low,Industry A,2
+Google Search,Low,Industry A,3
+Google Search,Low,Industry A,2
+Google Search,Low,Industry A,2
+Google Search,Low,Industry A,3
+Google Search,Low,Industry A,2
+Google Search,Low,Industry A,2
+Google Search,Low,Industry A,2
+Google Search,Low,Industry A,2
+Google Search,Low,Industry A,2
+Google Search,Low,Industry A,1
+Google Search,Low,Industry A,2
+Google Search,Low,Industry A,2
+Google Search,Low,Industry A,3
+Google Search,Low,Industry B,2
+Google Search,Low,Industry B,1
+Google Search,Low,Industry B,2
+Google Search,Low,Industry B,3
+Google Search,Low,Industry B,2
+Google Search,Low,Industry B,2
+Google Search,Low,Industry B,2
+Google Search,Low,Industry B,2
+Google Search,Low,Industry B,2
+Google Search,Low,Industry B,2
+Google Search,Low,Industry B,3
+Google Search,Low,Industry B,2
+Google Search,Low,Industry B,2
+Google Search,Low,Industry B,3
+Google Search,Low,Industry B,3
+Google Search,Low,Industry B,2
+Google Search,Low,Industry B,3
+Google Search,Low,Industry B,3
+Google Search,Low,Industry B,2
+Google Search,Low,Industry B,2
+Google Search,Low,Industry B,3
+Google Search,Low,Industry B,3
+Google Search,Low,Industry B,3
+Google Search,Low,Industry B,2
+Google Search,Low,Industry B,2
+Google Search,Low,Industry B,2
+Google Search,Low,Industry B,2
+Google Search,Low,Industry B,3
+Google Search,Low,Industry B,3
+Google Search,Low,Industry B,3
+Google Search,Low,Industry B,3
+Google Search,Low,Industry B,3
+Google Search,Low,Industry B,2
+Google Search,Low,Industry B,2
+Google Search,Low,Industry B,2
+Google Search,Low,Industry B,2
+Google Search,Low,Industry B,4
+Google Search,Low,Industry B,3
+Google Search,Low,Industry B,2
+Google Search,Low,Industry B,2
+Google Search,Low,Industry B,2
+Google Search,Low,Industry B,3
+Google Search,Low,Industry B,3
+Google Search,Low,Industry B,2
+Google Search,Low,Industry B,3
+Google Search,Low,Industry B,2
+Google Search,Low,Industry B,3
+Google Search,Low,Industry B,2
+Google Search,Low,Industry B,3
+Google Search,Low,Industry B,2
+Google Search,Low,Industry B,2
+Google Search,Low,Industry B,3
+Google Search,Low,Industry B,3
+Google Search,Low,Industry B,3
+Google Search,Low,Industry B,2
+Google Search,Low,Industry B,2
+Google Search,Low,Industry B,2
+Google Search,Low,Industry B,2
+Google Search,Low,Industry B,2
+Google Search,Low,Industry B,3
+Google Search,High,Industry A,3
+Google Search,High,Industry A,2
+Google Search,High,Industry A,3
+Google Search,High,Industry A,3
+Google Search,High,Industry A,3
+Google Search,High,Industry A,3
+Google Search,High,Industry A,3
+Google Search,High,Industry A,3
+Google Search,High,Industry A,3
+Google Search,High,Industry A,3
+Google Search,High,Industry A,2
+Google Search,High,Industry A,3
+Google Search,High,Industry A,3
+Google Search,High,Industry A,3
+Google Search,High,Industry A,2
+Google Search,High,Industry A,2
+Google Search,High,Industry A,3
+Google Search,High,Industry A,2
+Google Search,High,Industry A,2
+Google Search,High,Industry A,3
+Google Search,High,Industry A,2
+Google Search,High,Industry A,3
+Google Search,High,Industry A,3
+Google Search,High,Industry A,2
+Google Search,High,Industry A,2
+Google Search,High,Industry A,3
+Google Search,High,Industry A,3
+Google Search,High,Industry A,2
+Google Search,High,Industry A,3
+Google Search,High,Industry A,2
+Google Search,High,Industry A,3
+Google Search,High,Industry A,2
+Google Search,High,Industry A,3
+Google Search,High,Industry A,3
+Google Search,High,Industry A,3
+Google Search,High,Industry A,4
+Google Search,High,Industry A,2
+Google Search,High,Industry A,3
+Google Search,High,Industry A,3
+Google Search,High,Industry A,3
+Google Search,High,Industry A,2
+Google Search,High,Industry A,3
+Google Search,High,Industry A,4
+Google Search,High,Industry A,2
+Google Search,High,Industry A,3
+Google Search,High,Industry A,3
+Google Search,High,Industry A,2
+Google Search,High,Industry A,3
+Google Search,High,Industry A,2
+Google Search,High,Industry A,2
+Google Search,High,Industry A,2
+Google Search,High,Industry A,3
+Google Search,High,Industry A,3
+Google Search,High,Industry A,3
+Google Search,High,Industry A,2
+Google Search,High,Industry A,3
+Google Search,High,Industry A,3
+Google Search,High,Industry A,3
+Google Search,High,Industry A,2
+Google Search,High,Industry A,3
+Google Search,High,Industry B,3
+Google Search,High,Industry B,3
+Google Search,High,Industry B,3
+Google Search,High,Industry B,4
+Google Search,High,Industry B,3
+Google Search,High,Industry B,2
+Google Search,High,Industry B,3
+Google Search,High,Industry B,4
+Google Search,High,Industry B,3
+Google Search,High,Industry B,4
+Google Search,High,Industry B,3
+Google Search,High,Industry B,3
+Google Search,High,Industry B,4
+Google Search,High,Industry B,3
+Google Search,High,Industry B,2
+Google Search,High,Industry B,4
+Google Search,High,Industry B,2
+Google Search,High,Industry B,4
+Google Search,High,Industry B,4
+Google Search,High,Industry B,3
+Google Search,High,Industry B,2
+Google Search,High,Industry B,4
+Google Search,High,Industry B,2
+Google Search,High,Industry B,3
+Google Search,High,Industry B,3
+Google Search,High,Industry B,4
+Google Search,High,Industry B,3
+Google Search,High,Industry B,4
+Google Search,High,Industry B,3
+Google Search,High,Industry B,3
+Google Search,High,Industry B,3
+Google Search,High,Industry B,3
+Google Search,High,Industry B,3
+Google Search,High,Industry B,3
+Google Search,High,Industry B,3
+Google Search,High,Industry B,3
+Google Search,High,Industry B,3
+Google Search,High,Industry B,3
+Google Search,High,Industry B,3
+Google Search,High,Industry B,3
+Google Search,High,Industry B,3
+Google Search,High,Industry B,4
+Google Search,High,Industry B,3
+Google Search,High,Industry B,3
+Google Search,High,Industry B,3
+Google Search,High,Industry B,3
+Google Search,High,Industry B,4
+Google Search,High,Industry B,3
+Google Search,High,Industry B,3
+Google Search,High,Industry B,4
+Google Search,High,Industry B,3
+Google Search,High,Industry B,3
+Google Search,High,Industry B,4
+Google Search,High,Industry B,3
+Google Search,High,Industry B,3
+Google Search,High,Industry B,4
+Google Search,High,Industry B,4
+Google Search,High,Industry B,3
+Google Search,High,Industry B,3
+Google Search,High,Industry B,3
+News,Low,Industry A,2
+News,Low,Industry A,2
+News,Low,Industry A,3
+News,Low,Industry A,3
+News,Low,Industry A,3
+News,Low,Industry A,2
+News,Low,Industry A,3
+News,Low,Industry A,2
+News,Low,Industry A,2
+News,Low,Industry A,2
+News,Low,Industry A,2
+News,Low,Industry A,2
+News,Low,Industry A,2
+News,Low,Industry A,3
+News,Low,Industry A,3
+News,Low,Industry A,3
+News,Low,Industry A,2
+News,Low,Industry A,2
+News,Low,Industry A,2
+News,Low,Industry A,3
+News,Low,Industry A,3
+News,Low,Industry A,3
+News,Low,Industry A,2
+News,Low,Industry A,3
+News,Low,Industry A,3
+News,Low,Industry A,3
+News,Low,Industry A,2
+News,Low,Industry A,3
+News,Low,Industry A,2
+News,Low,Industry A,3
+News,Low,Industry A,2
+News,Low,Industry A,3
+News,Low,Industry A,3
+News,Low,Industry A,2
+News,Low,Industry A,3
+News,Low,Industry A,3
+News,Low,Industry A,2
+News,Low,Industry A,2
+News,Low,Industry A,1
+News,Low,Industry A,3
+News,Low,Industry A,2
+News,Low,Industry A,1
+News,Low,Industry A,2
+News,Low,Industry A,2
+News,Low,Industry A,3
+News,Low,Industry A,2
+News,Low,Industry A,3
+News,Low,Industry A,2
+News,Low,Industry A,2
+News,Low,Industry A,3
+News,Low,Industry A,3
+News,Low,Industry A,2
+News,Low,Industry A,3
+News,Low,Industry A,2
+News,Low,Industry A,2
+News,Low,Industry A,3
+News,Low,Industry A,3
+News,Low,Industry A,3
+News,Low,Industry A,3
+News,Low,Industry A,2
+News,Low,Industry B,3
+News,Low,Industry B,3
+News,Low,Industry B,2
+News,Low,Industry B,3
+News,Low,Industry B,3
+News,Low,Industry B,3
+News,Low,Industry B,3
+News,Low,Industry B,4
+News,Low,Industry B,2
+News,Low,Industry B,2
+News,Low,Industry B,3
+News,Low,Industry B,2
+News,Low,Industry B,4
+News,Low,Industry B,3
+News,Low,Industry B,2
+News,Low,Industry B,3
+News,Low,Industry B,4
+News,Low,Industry B,3
+News,Low,Industry B,3
+News,Low,Industry B,3
+News,Low,Industry B,3
+News,Low,Industry B,3
+News,Low,Industry B,2
+News,Low,Industry B,2
+News,Low,Industry B,3
+News,Low,Industry B,3
+News,Low,Industry B,2
+News,Low,Industry B,3
+News,Low,Industry B,3
+News,Low,Industry B,3
+News,Low,Industry B,3
+News,Low,Industry B,3
+News,Low,Industry B,3
+News,Low,Industry B,2
+News,Low,Industry B,3
+News,Low,Industry B,2
+News,Low,Industry B,3
+News,Low,Industry B,2
+News,Low,Industry B,3
+News,Low,Industry B,3
+News,Low,Industry B,4
+News,Low,Industry B,2
+News,Low,Industry B,2
+News,Low,Industry B,3
+News,Low,Industry B,2
+News,Low,Industry B,3
+News,Low,Industry B,3
+News,Low,Industry B,3
+News,Low,Industry B,4
+News,Low,Industry B,3
+News,Low,Industry B,4
+News,Low,Industry B,4
+News,Low,Industry B,3
+News,Low,Industry B,2
+News,Low,Industry B,3
+News,Low,Industry B,3
+News,Low,Industry B,2
+News,Low,Industry B,3
+News,Low,Industry B,3
+News,Low,Industry B,3
+News,High,Industry A,3
+News,High,Industry A,4
+News,High,Industry A,3
+News,High,Industry A,3
+News,High,Industry A,3
+News,High,Industry A,3
+News,High,Industry A,3
+News,High,Industry A,3
+News,High,Industry A,3
+News,High,Industry A,2
+News,High,Industry A,3
+News,High,Industry A,2
+News,High,Industry A,3
+News,High,Industry A,4
+News,High,Industry A,3
+News,High,Industry A,3
+News,High,Industry A,2
+News,High,Industry A,4
+News,High,Industry A,3
+News,High,Industry A,3
+News,High,Industry A,4
+News,High,Industry A,3
+News,High,Industry A,3
+News,High,Industry A,3
+News,High,Industry A,2
+News,High,Industry A,2
+News,High,Industry A,3
+News,High,Industry A,3
+News,High,Industry A,3
+News,High,Industry A,3
+News,High,Industry A,3
+News,High,Industry A,3
+News,High,Industry A,3
+News,High,Industry A,3
+News,High,Industry A,2
+News,High,Industry A,4
+News,High,Industry A,3
+News,High,Industry A,3
+News,High,Industry A,4
+News,High,Industry A,4
+News,High,Industry A,3
+News,High,Industry A,3
+News,High,Industry A,2
+News,High,Industry A,3
+News,High,Industry A,3
+News,High,Industry A,2
+News,High,Industry A,4
+News,High,Industry A,3
+News,High,Industry A,3
+News,High,Industry A,3
+News,High,Industry A,4
+News,High,Industry A,4
+News,High,Industry A,3
+News,High,Industry A,2
+News,High,Industry A,3
+News,High,Industry A,4
+News,High,Industry A,3
+News,High,Industry A,3
+News,High,Industry A,3
+News,High,Industry A,2
+News,High,Industry B,3
+News,High,Industry B,3
+News,High,Industry B,4
+News,High,Industry B,3
+News,High,Industry B,3
+News,High,Industry B,3
+News,High,Industry B,3
+News,High,Industry B,3
+News,High,Industry B,3
+News,High,Industry B,3
+News,High,Industry B,3
+News,High,Industry B,4
+News,High,Industry B,3
+News,High,Industry B,4
+News,High,Industry B,4
+News,High,Industry B,3
+News,High,Industry B,4
+News,High,Industry B,4
+News,High,Industry B,4
+News,High,Industry B,3
+News,High,Industry B,3
+News,High,Industry B,4
+News,High,Industry B,5
+News,High,Industry B,3
+News,High,Industry B,4
+News,High,Industry B,3
+News,High,Industry B,4
+News,High,Industry B,4
+News,High,Industry B,4
+News,High,Industry B,2
+News,High,Industry B,3
+News,High,Industry B,3
+News,High,Industry B,3
+News,High,Industry B,3
+News,High,Industry B,3
+News,High,Industry B,4
+News,High,Industry B,4
+News,High,Industry B,2
+News,High,Industry B,3
+News,High,Industry B,4
+News,High,Industry B,4
+News,High,Industry B,3
+News,High,Industry B,3
+News,High,Industry B,3
+News,High,Industry B,4
+News,High,Industry B,4
+News,High,Industry B,4
+News,High,Industry B,3
+News,High,Industry B,4
+News,High,Industry B,3
+News,High,Industry B,4
+News,High,Industry B,4
+News,High,Industry B,3
+News,High,Industry B,4
+News,High,Industry B,3
+News,High,Industry B,4
+News,High,Industry B,4
+News,High,Industry B,3
+News,High,Industry B,4
+News,High,Industry B,3
+Social Media,Low,Industry A,3
+Social Media,Low,Industry A,3
+Social Media,Low,Industry A,3
+Social Media,Low,Industry A,3
+Social Media,Low,Industry A,2
+Social Media,Low,Industry A,2
+Social Media,Low,Industry A,2
+Social Media,Low,Industry A,3
+Social Media,Low,Industry A,3
+Social Media,Low,Industry A,3
+Social Media,Low,Industry A,2
+Social Media,Low,Industry A,3
+Social Media,Low,Industry A,3
+Social Media,Low,Industry A,2
+Social Media,Low,Industry A,2
+Social Media,Low,Industry A,3
+Social Media,Low,Industry A,3
+Social Media,Low,Industry A,3
+Social Media,Low,Industry A,2
+Social Media,Low,Industry A,3
+Social Media,Low,Industry A,3
+Social Media,Low,Industry A,2
+Social Media,Low,Industry A,3
+Social Media,Low,Industry A,3
+Social Media,Low,Industry A,2
+Social Media,Low,Industry A,3
+Social Media,Low,Industry A,2
+Social Media,Low,Industry A,3
+Social Media,Low,Industry A,3
+Social Media,Low,Industry A,3
+Social Media,Low,Industry A,2
+Social Media,Low,Industry A,2
+Social Media,Low,Industry A,2
+Social Media,Low,Industry A,2
+Social Media,Low,Industry A,3
+Social Media,Low,Industry A,3
+Social Media,Low,Industry A,2
+Social Media,Low,Industry A,2
+Social Media,Low,Industry A,2
+Social Media,Low,Industry A,3
+Social Media,Low,Industry A,2
+Social Media,Low,Industry A,4
+Social Media,Low,Industry A,2
+Social Media,Low,Industry A,2
+Social Media,Low,Industry A,3
+Social Media,Low,Industry A,3
+Social Media,Low,Industry A,3
+Social Media,Low,Industry A,2
+Social Media,Low,Industry A,3
+Social Media,Low,Industry A,3
+Social Media,Low,Industry A,3
+Social Media,Low,Industry A,3
+Social Media,Low,Industry A,2
+Social Media,Low,Industry A,2
+Social Media,Low,Industry A,3
+Social Media,Low,Industry A,2
+Social Media,Low,Industry A,3
+Social Media,Low,Industry A,3
+Social Media,Low,Industry A,2
+Social Media,Low,Industry A,3
+Social Media,Low,Industry B,3
+Social Media,Low,Industry B,3
+Social Media,Low,Industry B,4
+Social Media,Low,Industry B,2
+Social Media,Low,Industry B,2
+Social Media,Low,Industry B,3
+Social Media,Low,Industry B,3
+Social Media,Low,Industry B,3
+Social Media,Low,Industry B,3
+Social Media,Low,Industry B,3
+Social Media,Low,Industry B,3
+Social Media,Low,Industry B,3
+Social Media,Low,Industry B,3
+Social Media,Low,Industry B,3
+Social Media,Low,Industry B,3
+Social Media,Low,Industry B,3
+Social Media,Low,Industry B,3
+Social Media,Low,Industry B,2
+Social Media,Low,Industry B,3
+Social Media,Low,Industry B,3
+Social Media,Low,Industry B,4
+Social Media,Low,Industry B,3
+Social Media,Low,Industry B,3
+Social Media,Low,Industry B,2
+Social Media,Low,Industry B,4
+Social Media,Low,Industry B,3
+Social Media,Low,Industry B,4
+Social Media,Low,Industry B,3
+Social Media,Low,Industry B,4
+Social Media,Low,Industry B,3
+Social Media,Low,Industry B,3
+Social Media,Low,Industry B,3
+Social Media,Low,Industry B,3
+Social Media,Low,Industry B,4
+Social Media,Low,Industry B,3
+Social Media,Low,Industry B,3
+Social Media,Low,Industry B,3
+Social Media,Low,Industry B,4
+Social Media,Low,Industry B,3
+Social Media,Low,Industry B,3
+Social Media,Low,Industry B,3
+Social Media,Low,Industry B,3
+Social Media,Low,Industry B,4
+Social Media,Low,Industry B,4
+Social Media,Low,Industry B,4
+Social Media,Low,Industry B,3
+Social Media,Low,Industry B,3
+Social Media,Low,Industry B,4
+Social Media,Low,Industry B,4
+Social Media,Low,Industry B,3
+Social Media,Low,Industry B,3
+Social Media,Low,Industry B,4
+Social Media,Low,Industry B,3
+Social Media,Low,Industry B,3
+Social Media,Low,Industry B,3
+Social Media,Low,Industry B,3
+Social Media,Low,Industry B,3
+Social Media,Low,Industry B,3
+Social Media,Low,Industry B,4
+Social Media,Low,Industry B,3
+Social Media,High,Industry A,4
+Social Media,High,Industry A,3
+Social Media,High,Industry A,3
+Social Media,High,Industry A,3
+Social Media,High,Industry A,4
+Social Media,High,Industry A,3
+Social Media,High,Industry A,4
+Social Media,High,Industry A,4
+Social Media,High,Industry A,4
+Social Media,High,Industry A,5
+Social Media,High,Industry A,4
+Social Media,High,Industry A,4
+Social Media,High,Industry A,4
+Social Media,High,Industry A,4
+Social Media,High,Industry A,3
+Social Media,High,Industry A,4
+Social Media,High,Industry A,3
+Social Media,High,Industry A,4
+Social Media,High,Industry A,4
+Social Media,High,Industry A,4
+Social Media,High,Industry A,4
+Social Media,High,Industry A,4
+Social Media,High,Industry A,4
+Social Media,High,Industry A,3
+Social Media,High,Industry A,4
+Social Media,High,Industry A,4
+Social Media,High,Industry A,3
+Social Media,High,Industry A,4
+Social Media,High,Industry A,3
+Social Media,High,Industry A,4
+Social Media,High,Industry A,4
+Social Media,High,Industry A,4
+Social Media,High,Industry A,4
+Social Media,High,Industry A,4
+Social Media,High,Industry A,4
+Social Media,High,Industry A,3
+Social Media,High,Industry A,3
+Social Media,High,Industry A,3
+Social Media,High,Industry A,4
+Social Media,High,Industry A,4
+Social Media,High,Industry A,4
+Social Media,High,Industry A,4
+Social Media,High,Industry A,3
+Social Media,High,Industry A,3
+Social Media,High,Industry A,3
+Social Media,High,Industry A,4
+Social Media,High,Industry A,4
+Social Media,High,Industry A,4
+Social Media,High,Industry A,4
+Social Media,High,Industry A,4
+Social Media,High,Industry A,4
+Social Media,High,Industry A,4
+Social Media,High,Industry A,3
+Social Media,High,Industry A,4
+Social Media,High,Industry A,5
+Social Media,High,Industry A,4
+Social Media,High,Industry A,4
+Social Media,High,Industry A,3
+Social Media,High,Industry A,5
+Social Media,High,Industry A,3
+Social Media,High,Industry B,4
+Social Media,High,Industry B,4
+Social Media,High,Industry B,5
+Social Media,High,Industry B,4
+Social Media,High,Industry B,4
+Social Media,High,Industry B,3
+Social Media,High,Industry B,4
+Social Media,High,Industry B,4
+Social Media,High,Industry B,4
+Social Media,High,Industry B,3
+Social Media,High,Industry B,4
+Social Media,High,Industry B,4
+Social Media,High,Industry B,4
+Social Media,High,Industry B,4
+Social Media,High,Industry B,4
+Social Media,High,Industry B,3
+Social Media,High,Industry B,4
+Social Media,High,Industry B,4
+Social Media,High,Industry B,4
+Social Media,High,Industry B,4
+Social Media,High,Industry B,4
+Social Media,High,Industry B,4
+Social Media,High,Industry B,5
+Social Media,High,Industry B,4
+Social Media,High,Industry B,4
+Social Media,High,Industry B,3
+Social Media,High,Industry B,4
+Social Media,High,Industry B,4
+Social Media,High,Industry B,5
+Social Media,High,Industry B,4
+Social Media,High,Industry B,4
+Social Media,High,Industry B,4
+Social Media,High,Industry B,5
+Social Media,High,Industry B,4
+Social Media,High,Industry B,4
+Social Media,High,Industry B,4
+Social Media,High,Industry B,4
+Social Media,High,Industry B,3
+Social Media,High,Industry B,4
+Social Media,High,Industry B,4
+Social Media,High,Industry B,4
+Social Media,High,Industry B,4
+Social Media,High,Industry B,5
+Social Media,High,Industry B,3
+Social Media,High,Industry B,5
+Social Media,High,Industry B,4
+Social Media,High,Industry B,4
+Social Media,High,Industry B,5
+Social Media,High,Industry B,4
+Social Media,High,Industry B,5
+Social Media,High,Industry B,4
+Social Media,High,Industry B,4
+Social Media,High,Industry B,5
+Social Media,High,Industry B,5
+Social Media,High,Industry B,4
+Social Media,High,Industry B,5
+Social Media,High,Industry B,4
+Social Media,High,Industry B,3
+Social Media,High,Industry B,4
+Social Media,High,Industry B,5
