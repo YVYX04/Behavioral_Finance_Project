@@ -1,0 +1,432 @@
+---
+title: "Behavioral Economics Analysis"
+author: "Yvan Richard"
+date: today
+format:
+  html:
+    theme: cosmo
+    highlight-style: github
+    toc: true
+    toc-depth: 3
+    number-sections: false
+    code-fold: false
+    code-tools: false
+    self-contained: true
+execute:
+  echo: true
+  warning: false
+  message: false
+jupyter: behavioral-finance-project
+---
+
+# Foreword
+
+This notebook conducts a first analysis of the behavioral finance dataset. The goals are multiple:
+
+- Define the key variables
+- Define the research question and the hypotheses
+- Perform an exploratory data analysis (EDA)
+- Generate a first statistical experiment
+
+Below are the necessary Python imports for this analysis.
+
+```{python}
+import numpy as np
+import pandas as pd
+import matplotlib.pyplot as plt
+import seaborn as sns
+import scipy.stats as stats
+import statsmodels.api as sm
+from statsmodels.formula.api import ols
+```
+
+# 1. Data Loading and Variable Definition
+
+## 1.1. Load the dataset
+
+First, we load the dataset into a pandas DataFrame.
+
+```{python}
+# load the dataset (from pickle)
+data = pd.read_pickle('../data/data.pkl')
+
+# display the first few rows of the dataset
+data.head(3)
+```
+
+and we get information about the dataset:
+
+```{python}
+# get information about the dataset
+data.info()
+```
+
+We notice that, as verified by our cleaning pipeline `src/clean_xlsx.py`, there are no missing values in the dataset.
+Furthermore, the output also show that the columns `['media_attention', 'exposure_level', 'industry']` are of type
+`category`, which is consistent with our expectations.
+
+## 1.2. Variables Definition
+
+Our statistical analysis relies on the following variables.
+
+| Variable Name | Description | Type | Role |
+|---------------|-------------|------|------|
+| `media_attention` | The type of media consulted `['Google Search', 'News', 'Social Media']` | Categorical | IV (1) |
+| `exposure_level` | The level of exposure to the media `['Low', 'High']` | Categorical | IV (2) |
+| `industry` | The industry of the stock `['Industry A', 'Industry B']` | Categorical | IV (3) |
+| `buying_intention` | The buying intention of the participant (1-5) | Numerical (ordinal) | DV |
+
+# 2. Research Question and Hypotheses
+
+The goal of this statistical analysis is to investigate the impact of media attention, exposure level, and industry on the buying intention of participants. Specifically, we address the following research question:
+
+:::{.callout-note title="Research Question" icon=false}
+Does the type of media attention, the level of exposure, and the type of stock industry
+influence retail investors’ buying intention and stock choice?
+:::
+
+To answer this research question, we formulate the following hypotheses:
+
+:::{.callout-note title="Hypotheses" icon=false}
+- **H1**: Stocks with high exposure will produce higher buying intention than stocks with low exposure.
+- **H2**: The type of media attention will affect buying intention and stock choice. For example, social media attention may create stronger investor interest than Google Search or news attention.
+- **H3**: The effect of media attention and exposure may differ depending on the stock industry.
+- **H4**: There may be an interaction effect between media type, exposure level, and stock industry, meaning that high exposure on one type of media may be especially influential for one industry but not another.
+:::
+
+# 3. Exploratory Data Analysis (EDA)
+
+## 3.1. Univariate Analysis
+
+In this first section, the purpose is to compute descriptive statistics for the dependent variable, and the
+independent variables. We also want to visualize the distribution of all the variables in the dataset.
+Importantly, the plots we produce in this section are meant to be used in the final report, so we will make sure to customize them accordingly.
+
+### Summary Statistics
+
+#### Dependent Variable
+
+We first compute summary statistics for the dependent variable `buying_intention`, which is a numerical (ordinal) variable.
+
+```{python}
+# Generate a value counts for the dependent variable
+summary_stats = data['buying_intention'].value_counts().sort_index()
+print("Summary Statistics for Buying Intention:")
+print(summary_stats)
+```
+
+We can additionally generate summary statistics for `buying_intention`:
+
+```{python}
+# Generate summary statistics for the dependent variable
+summary_stats = data['buying_intention'].describe()
+print("Summary Statistics for Buying Intention:")
+print(summary_stats)
+```
+
+#### Independent Variables
+
+Now we compute value counts for the independent variables, which are categorical.
+
+```{python}
+# Generate value counts for the independent variables
+for col in ['media_attention', 'exposure_level', 'industry']:
+    print(f"Value Counts for {col}:")
+    print(data[col].value_counts())
+    print("\n")
+```
+
+This confirms that in the synthetic dataset provided by the teacher we have a balanced sample across the different categories of the independent variables.
+
+### Plots
+
+Since the independent variables are perfectly balanced, I will not produce plots for them. Instead, I will focus on visualizing the distribution of the dependent variable `buying_intention`.
+
+```{python}
+# create figure
+fig, ax = plt.subplots(figsize=(8, 4))
+
+# plot the distribution of the dependent variable
+sns.countplot(x='buying_intention', data=data, ax=ax, color='#475ED1', edgecolor='#141F52', width=0.6, zorder=3)
+
+# aesthetic customizations
+ax.set_title('Distribution of Buying Intention',
+                fontsize=13, loc='left', family='serif', pad=20)
+ax.set_xlabel('Buying Intention', fontsize=11, family='serif')
+ax.set_ylabel('Count', fontsize=11, family='serif')
+ax.set_xticks(range(5))
+ax.set_xticklabels(['1', '2', '3', '4', '5'])
+ax.grid(axis='y', linestyle='-', alpha=0.8, color='#36E2BD', zorder=0)
+ax.spines['top'].set_visible(False)
+ax.spines['right'].set_visible(False)
+plt.tight_layout()
+# plt.savefig('../results/plots/buying_intention_distribution.pdf', dpi=300)
+plt.show()
+```
+
+As we can see from the plot, the distribution of `buying_intention` is probably derived from a
+normal distribution, with a mean at 2.969.
+
+## 3.2. Bivariate Analysis
+
+In this section, we will explore the relationships between the dependent variable `buying_intention` and each of the independent variables (`media_attention`, `exposure_level`, and `industry`). Since `buying_intention` is an ordinal variable, we will use boxplots to visualize the relationship between `buying_intention` and the categorical independent variables.
+
+```{python}
+# create figure
+fig, ax = plt.subplots(1, 3, figsize=(15, 5))
+
+# box plots
+for i, col in enumerate(['media_attention', 'exposure_level', 'industry']):
+    sns.boxplot(
+        x=col,
+        y='buying_intention',
+        data=data,
+        ax=ax[i],
+        color='#475ED1',
+        width=0.6,
+        showmeans=True,
+        meanprops={
+            'marker': 'D',
+            'markerfacecolor': '#FBD051',
+            'markeredgecolor': '#F97A1F',
+            'markersize': 5
+        },
+        medianprops={
+            'color': '#E2365B',
+            'linewidth': 2
+        }
+    )
+    ax[i].set_title(f'Buying Intention by {col.replace("_", " ").title()}',
+                    fontsize=11, loc='center', family='serif', pad=10)
+    ax[i].set_xlabel(col.replace("_", " ").title(), fontsize=10, family='serif')
+    ax[i].set_ylabel('Buying Intention', fontsize=10, family='serif')
+    ax[i].grid(axis='y', linestyle='-', alpha=0.8, color='#36E2BD')
+    ax[i].spines['top'].set_visible(False)
+    ax[i].spines['right'].set_visible(False)
+
+plt.tight_layout()
+plt.savefig('../results/plots/bivariate_analysis.pdf', bbox_inches='tight')
+plt.show()
+```
+
+**Interpretation of the Boxplots**
+
+The figure presents the distribution of buying intention across our three main experimental dimensions: `media_attention`, `exposure_level`, and `industry`. The <strong style="color:#FBD051">yellow</strong> diamonds represent the mean values, while the <strong style="color:#E2365B">red</strong> lines indicate the median values. Overall, the boxplots suggest visible differences in buying intention across treatment categories. 
+
+:::{.callout-warning icon=false}
+The following interpretations are based on visual inspection of the boxplots and should be considered preliminary. Formal statistical tests are needed to confirm these observations.
+:::
+
+First, buying intention appears highest for respondents exposed through **social media**. The median is around 3, but the upper quartile reaches 4 and the distribution extends up to 5, suggesting that social media exposure is associated with relatively stronger buying intention. By contrast, **Google Search** displays a lower central tendency, with most observations concentrated between 2 and 3. The **News** category is unusual: the box collapses around a buying intention of 3, indicating that the middle 50% of observations take the same value. The points above and below this line reflect individual responses outside this concentrated central mass rather than necessarily substantively extreme observations.
+
+Second, the **high exposure** condition is associated with higher buying intention than the **low exposure** condition. The high-exposure group has a higher median and a distribution shifted upward, while the low-exposure group is more concentrated around lower values. This pattern is consistent with the idea that higher level of attention to the stock may increase investors’ interest and willingness to buy.
+
+Third, buying intention also differs across industries. **Industry B** shows a higher central tendency than **Industry A**, with most of its distribution located between 3 and 4, while Industry A is more concentrated between 2 and 3. This suggests that respondents may perceive Industry B as more attractive, credible, or investment-relevant in the context of the experiment. We could craft a narrative around this.
+
+# 4. Statistical Experiments
+
+## 4.1. ANOVA
+
+### Estimation & Results
+
+To formally test the effects of the independent variables on buying intention, we can perform a three-way ANOVA. This will allow us to assess the main effects of `media_attention`, `exposure_level`, and `industry`, as well as their interaction effects.
+
+```{python}
+# Fit the ANOVA model
+model = ols('buying_intention ~ C(media_attention) * C(exposure_level) * C(industry)', data=data).fit()
+anova_table = sm.stats.anova_lm(model, typ=2)
+print(anova_table)
+```
+
+We can also save the results of the ANOVA table to a dataframe:
+
+```{python}
+anova_df = pd.DataFrame(anova_table)
+anova_df
+```
+
+To further complete our analysis, we can also compute the partial effect sizes ($\eta^2_{p}$)
+for each effect in the ANOVA table:
+
+$$
+\eta^2_{p} = \frac{SS_{effect}}{SS_{effect} + SS_{error}}
+$$
+
+We collect the residuals sum of squares (SS_error) from the ANOVA table first and then compute the partial eta squared for each effect, while setting the value for the residual row to NaN since it does not represent an effect of interest.
+
+```{python}
+# Copy ANOVA table
+anova_df = anova_table.copy()
+
+# Extract residual sum of squares
+ss_error = anova_df.loc["Residual", "sum_sq"]
+
+# Compute partial eta squared
+anova_df["partial_eta_sq"] = anova_df["sum_sq"] / (anova_df["sum_sq"] + ss_error)
+
+# Remove value for residual row
+anova_df.loc["Residual", "partial_eta_sq"] = np.nan
+
+anova_df
+```
+
+Now we have the ANOVA table with the sum of squares, degrees of freedom, mean squares, F-value, p-value, and partial eta squared for each effect. This will allow us to build the table for our final presentation.
+
+### Assumptions Check
+
+We have to check the assumptions of the ANOVA test, which include:
+1. **Independence of observations**: This is typically ensured by the experimental design. We assume that the responses of participants are independent of each other.
+2. **Normality of residuals**: We can check this by plotting the residuals and performing a normality test (e.g., Shapiro-Wilk test).
+
+```{python}
+# Extract residuals
+residuals = model.resid
+
+# Plot residuals
+fig, ax = plt.subplots(figsize=(8, 4))
+sns.kdeplot(residuals, fill=True, ax=ax, color='#475ED1', edgecolor='#141F52')
+ax.set_title('Distribution of Residuals (ANOVA Model)',
+                fontsize=13, loc='left', family='serif', pad=20)
+ax.set_xlabel('Residuals', fontsize=11, family='serif')
+ax.set_ylabel('Frequency', fontsize=11, family='serif')
+ax.grid(axis='y', linestyle='-', alpha=0.8, color='#36E2BD', zorder=0)
+ax.spines['top'].set_visible(False)
+ax.spines['right'].set_visible(False)
+plt.tight_layout()
+# plt.savefig('../results/plots/residuals_distribution.pdf', dpi=300)
+plt.show()
+```
+
+And now the Shapiro-Wilk test for normality of residuals:
+
+```{python}
+# Perform Shapiro-Wilk test
+shapiro_test = stats.shapiro(residuals)
+print("Shapiro-Wilk test:", shapiro_test)
+```
+
+The Shapiro-Wilk test rejects the null hypothesis of normally distributed residuals, $W = 0.9904$, $p < 0.001$. This indicates a statistically detectable deviation from normality. However, given the relatively large sample size, the test is highly sensitive, and even minor departures from normality can become statistically significant! Therefore, this result should be interpreted together with the residual density plot and a Q-Q plot.
+
+```{python}
+# Q-Q plot of residuals
+fig, ax = plt.subplots(figsize=(8, 4))
+qq = sm.qqplot(residuals, line='s', ax=ax, color='#475ED1', markersize=5)
+
+# Customize the reference line manually
+qq.axes[0].get_lines()[1].set_color('#E2365B')
+qq.axes[0].get_lines()[1].set_linewidth(2)
+
+ax.set_title('Q-Q Plot of Residuals (ANOVA Model)',
+                fontsize=13, loc='left', family='serif', pad=20)
+ax.set_xlabel('Theoretical Quantiles', fontsize=11, family='serif')
+ax.set_ylabel('Sample Quantiles', fontsize=11, family='serif')
+ax.grid(axis='y', linestyle='-', alpha=0.8, color='#36E2BD', zorder=0)
+ax.spines['top'].set_visible(False)
+ax.spines['right'].set_visible(False)
+plt.tight_layout()
+# plt.savefig('../results/plots/residuals_qqplot.pdf', bbox_inches='tight')
+plt.show()
+```
+
+The Q-Q plot shows that the residuals do not deviate strongly from the reference line, suggesting that the normality assumption is not severely violated. The Shapiro-Wilk test's significant result is likely due to the large sample size. For the final report, I plot the two diagnostic plots (residual density and Q-Q plot) together to build a clean slide:
+
+```{python}
+# create figure
+fig, ax = plt.subplots(1, 2, figsize=(10, 4))
+# plot the distribution of residuals
+sns.kdeplot(residuals, fill=True, ax=ax[0], color='#475ED1', edgecolor='#141F52')
+ax[0].set_title('Distribution of Residuals (ANOVA Model)',
+                fontsize=13, loc='left', family='serif', pad=20)
+ax[0].set_xlabel('Residuals', fontsize=11, family='serif')
+ax[0].set_ylabel('Frequency', fontsize=11, family='serif')
+ax[0].grid(axis='y', linestyle='-', alpha=0.8, color='#36E2BD', zorder=0)
+ax[0].spines['top'].set_visible(False)
+ax[0].spines['right'].set_visible(False)
+# Q-Q plot of residuals
+qq = sm.qqplot(residuals, line='s', ax=ax[1], color='#475ED1', markersize=5)
+# Customize the reference line manually
+
+qq.axes[1].get_lines()[1].set_color('#E2365B')
+qq.axes[1].get_lines()[1].set_linewidth(2)
+
+ax[1].set_title('Q-Q Plot of Residuals (ANOVA Model)',
+                fontsize=13, loc='left', family='serif', pad=20)
+ax[1].set_xlabel('Theoretical Quantiles', fontsize=11, family='serif')
+ax[1].set_ylabel('Sample Quantiles', fontsize=11, family='serif')
+ax[1].grid(axis='y', linestyle='-', alpha=0.8, color='#36E2BD', zorder=0)
+ax[1].spines['top'].set_visible(False)
+ax[1].spines['right'].set_visible(False)
+plt.tight_layout()
+# plt.savefig('../results/plots/residuals_diagnostics.pdf', bbox_inches='tight')
+plt.show()
+```
+
+The combined diagnostic plots suggest that while the Shapiro-Wilk test indicates a statistically significant deviation from normality, the residuals do not show strong departures from normality in the density and Q-Q plots. Given the large sample size, we can reasonably proceed with the ANOVA results while acknowledging this limitation.
+
+### Discussion of Results
+
+The ANOVA results indicate that there are significant main effects of `media_attention`, `exposure_level`, and `industry` on buying intention, as well as some significant interaction effects between these variables. The effect sizes (partial eta squared) suggest that the main effects of `media_attention` and `exposure_level` are particularly strong. The interaction effects indicate that, at the 5% significance level, only the the interaction between `media_attention` and `exposure_level` is significant. The three-way interaction is also significant, but the effect size is very small. These results guide
+the further post-hoc analyses we will perform in the next section to explore the specific differences between treatment groups.
+
+
+### Post-hoc Analysis
+
+To further explore the significant effects found in the ANOVA, we can perform post-hoc pairwise comparisons using Tukey's HSD test. This will allow us to identify which specific groups differ from each other in terms of buying intention.
+
+```{python}
+from statsmodels.stats.multicomp import pairwise_tukeyhsd
+
+# Perform Tukey's HSD test for media_attention
+tukey_media = pairwise_tukeyhsd(endog=data['buying_intention'], groups=data['media_attention'], alpha=0.05)
+print(tukey_media)
+
+# Perform Tukey's HSD test for exposure_level
+tukey_exposure = pairwise_tukeyhsd(endog=data['buying_intention'], groups=data['exposure_level'], alpha=0.05)
+print(tukey_exposure)
+
+# Perform Tukey's HSD test for industry
+tukey_industry = pairwise_tukeyhsd(endog=data['buying_intention'], groups=data['industry'], alpha=0.05)
+print(tukey_industry)
+```
+
+
+
+The results are all statistically significant, confirming that the differences observed in the boxplots are statistically significant. Specifically, for `media_attention`, all pairwise comparisons are significant, indicating that buying intention differs significantly between all three media types; we notice that `Social Media` has the highest buying intention, followed by `Google Search` and `News`. For `exposure_level`, the high exposure group has a significantly higher buying intention than the low exposure group. For `industry`, Industry B has a significantly higher buying intention than Industry A.
+
+### Visualization of Interaction Effects
+
+To visualize the interaction effects between `media_attention` and `exposure_level`, we can create an interaction plot. This will help us understand how the effect of media attention on buying intention changes across different levels of exposure.
+
+```{python}
+# Create an interaction plot
+fig, ax = plt.subplots(figsize=(8, 5))
+sns.pointplot(x='media_attention', y='buying_intention', hue='exposure_level', data=data, ax=ax, palette='Blues', markers=['o', 's'], linestyles=['-', '--'])
+ax.set_title('Interaction Plot: Media Attention and Exposure Level',
+                fontsize=13, loc='left', family='serif', pad=20)
+ax.set_xlabel('Media Attention', fontsize=11, family='serif')
+ax.set_ylabel('Mean Buying Intention', fontsize=11, family='serif')
+ax.grid(axis='y', linestyle='-', alpha=0.8, color='#36E2BD')
+ax.spines['top'].set_visible(False)
+ax.spines['right'].set_visible(False)
+plt.tight_layout()
+# plt.savefig('../results/plots/interaction_plot.pdf', bbox_inches='tight')
+plt.show()
+```
+
+The interaction plot shows that buying intention is consistently higher under high exposure than under low exposure across all media types. In addition, buying intention increases from Google Search to News and is highest under Social Media exposure. The non-parallel lines indicate an interaction between media attention and exposure level: the effect of media type on buying intention differs depending on whether exposure is high or low. In particular, Social Media combined with high exposure produces the strongest buying intention, suggesting that high exposure amplifies the persuasive effect of social media more strongly than it does for the other media channels.
+
+# 5. Further Steps
+
+The tasks to be finished for our project are the following:
+
+| Task | Description | Status |
+|------|-------------|--------|
+| Initial EDA and ANOVA | Conduct an exploratory data analysis and perform a three-way ANOVA to test the main effects and interactions of the independent variables on buying intention. | ✅  |
+| Further Statistical Analysis | Conduct additional statistical tests or analyses to explore other potential effects or interactions in the data. | ❌ |
+| Slides | Create LaTeX slides for the final presentation, be sure to follow the structure and formatting guidelines provided. | ❌ |
+
+
+::: {.callout-warning title="Deadline" icon=false}
+To be sure that we have the final slides ready for May, 18 (Monday), we should
+aim to finish the production of all the input by May, 15 (Friday). This will give us a few days to build and polish the slides before the final presentation :)
+:::
