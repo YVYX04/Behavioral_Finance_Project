@@ -15,19 +15,19 @@ uv run python src/clean_xlsx.py
 ```
 """
 
-import numpy as np
 import pandas as pd
 
-def clean_xlsx(file_path: str="data/baseline_sample.xlsx") -> pd.DataFrame:
+def clean_xlsx(file_path: str = "data/baseline_sample.xlsx") -> pd.DataFrame:
     # Read the xlsx file
     df = pd.read_excel(file_path)
 
-    # No missing value check
+    # Missing value check
     n_row_missing = df.isnull().sum(axis=1)
-    assert n_row_missing.sum() == 0, "There are missing values in the dataset."
+    if n_row_missing.sum() > 0:
+        raise ValueError(f"Found {n_row_missing.sum()} rows with missing values in the dataset. Please check the xlsx file.")
 
     # New columns names
-    columns_names = {
+    col_map = {
         'Media_Attention (IV1)': 'media_attention',
         'Exposure_Level (IV2)': 'exposure_level',
         'Industry (IV3)': 'industry',
@@ -35,7 +35,7 @@ def clean_xlsx(file_path: str="data/baseline_sample.xlsx") -> pd.DataFrame:
     }
 
     # Rename columns
-    df.rename(columns=columns_names, inplace=True)
+    df.rename(columns=col_map, inplace=True)
 
     # Categorical columns
     categorical_columns = ['media_attention', 'exposure_level', 'industry']
