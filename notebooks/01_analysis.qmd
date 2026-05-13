@@ -721,9 +721,55 @@ The interaction plot shows whether buying intention differs across media types d
 
 # 5. Discussion of Results
 
-:::{.callout-warning title="🚧 Under Construction 🚧" icon=false}
-This section needs to be completed with a full, detailed, and comprehensive discussion of the results. The discussion should include interpretation of the ANOVA and regression findings, as well as the implications for behavioral finance.
-:::
+```
+
+I decided to split the Discussion of Results in 5 parts, with the idea of doing one slide per part. I've thus for each part included a brief text overview (what we could say during the presentation) and also bullet points we could potentially have on the slides
+
+1)Bivariate Analysis Results & Discussion:
+
+a)The bivariate boxplots provide a first visual comparison of buying intention across each independent variable separately. They suggest that buying intention is not evenly distributed across groups: Social Media, High Exposure, and Industry B all appear associated with higher buying intention.
+
+b)Slide bullets:
+  -Social Media shows the highest average buying intention
+  -Google Search appears to have the lowest central tendency
+  -High exposure is associated with higher buying intention than low exposure
+  -Industry B appears more attractive than Industry A
+  -These results are exploratory and based on visual comparison only
+
+2)ANOVA Results & Discussion: Main Patterns and Interaction
+
+a)The ANOVA goes beyond the bivariate analysis by testing media attention, exposure level, and industry together. The interaction plot shows that high exposure increases buying intention across media types, but the strongest buying intention appears when Social Media is combined with High Exposure.
+
+b)Slide bullets
+  -ANOVA formally tests the effects of all three factors together
+  -Buying intention differs across media attention, exposure level, and industry
+  -High exposure produces higher buying intention across media types
+  -The strongest pattern appears for Social Media + High Exposure
+  -The interaction plot suggests that media type and exposure level work together
+
+3)ANOVA Results & Discussion: Distribution and Model Diagnostics
+
+a)The distribution plot shows that buying intention is centered around the middle of the 1–5 scale, especially around 3. The residual diagnostics suggest that the ANOVA model is reasonably appropriate: the residual distribution is roughly bell-shaped, and the Q-Q plot mostly follows the reference line.
+
+b)Slide bullets
+  -Buying intention is mostly centered around 3
+  -The data still show variation across the full 1–5 scale
+  -Residual distribution is approximately bell-shaped
+  -Q-Q plot shows only limited departures from normality
+  -Diagnostics support using ANOVA, with some caution
+
+4)Comparison: Bivariate Analysis vs ANOVA
+
+a)The bivariate analysis and ANOVA lead to similar overall conclusions, but they play different roles. The bivariate analysis identifies the main visual patterns, while the ANOVA confirms and deepens those findings by testing all factors together and revealing interaction effects.
+
+b)Slide bullets
+  -Both methods point to the same general conclusion: attention signals matter
+  -Bivariate analysis is descriptive; ANOVA is inferential
+  -Bivariate plots show simple one-variable-at-a-time differences
+  -ANOVA tests all variables together and captures interactions
+  -Main takeaway: Social Media and High Exposure are especially influential
+
+
 
 # Further Steps
 
