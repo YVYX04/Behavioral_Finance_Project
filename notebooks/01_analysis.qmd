@@ -1,6 +1,8 @@
 ---
 title: "Behavioral Economics Analysis"
-author: "Yvan Richard and Samuel Payne"
+author:
+  - "Yvan Richard"
+  - "Samuel Payne"
 date: today
 format:
   html:
@@ -717,7 +719,13 @@ plt.show()
 
 The interaction plot shows whether buying intention differs across media types depending on exposure level. If the lines are not parallel, this suggests an interaction between media attention and exposure level. In particular, if high exposure produces a larger increase in buying intention for one media type than another, this supports the idea that exposure and media type jointly influence investor behavior.
 
-# 5. Further Steps
+# 5. Discussion of Results
+
+:::{.callout-warning title="🚧 Under Construction 🚧" icon=false}
+This section needs to be completed with a full, detailed, and comprehensive discussion of the results. The discussion should include interpretation of the ANOVA and regression findings, as well as the implications for behavioral finance.
+:::
+
+# Further Steps
 
 The tasks to be finished for the project are the following:
 
@@ -725,6 +733,7 @@ The tasks to be finished for the project are the following:
 |------|-------------|--------|
 | Initial EDA and ANOVA | Conduct an exploratory data analysis and perform a three-way ANOVA to test the main effects and interactions of the independent variables on buying intention. | ✅ |
 | Further Statistical Analysis | Conduct a linear regression analysis with main effects, interaction effects, model comparison, robust standard errors, and regression diagnostics. | ✅ |
+| Discussion of Results | Write a full, detailed, and comprehensive discussion of the results, including interpretation of the ANOVA and regression findings, as well as the implications for behavioral finance. | ❌ |
 | Slides | Create LaTeX slides for the final presentation, following the structure and formatting guidelines provided. | ❌ |
 
 ::: {.callout-warning title="Deadline" icon=false}
