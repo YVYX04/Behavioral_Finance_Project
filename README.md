@@ -36,12 +36,11 @@ Behavioral_Finance_Project/
 │       ├── residuals_diagnostics.pdf
 │       ├── residuals_distribution.pdf
 │       └── residuals_qqplot.pdf
-├── reports/
-│   └── research_proposal/
-│       ├── research_proposal.pdf
+├── slides/
+│   └── presentation/
+│       ├── main_presentation.pdf
 │       └── latex_code/
-│           ├── main.tex
-│           └── references.bib
+│           └── main.tex
 ├── pyproject.toml
 ├── uv.lock
 └── .python-version                 # Pins Python 3.13
